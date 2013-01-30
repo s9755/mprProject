@@ -16,7 +16,7 @@ import org.hibernate.annotations.NamedQueries;
 import org.hibernate.annotations.NamedQuery;
 
 import registerOffice.Context;
-import registerOffice.businessObjects.cars.*;
+import registerOffice.businessObjects.books.*;
 
 
 @Entity
@@ -45,7 +45,7 @@ public class Person {
 	private String name;
 	
 	@OneToMany(mappedBy="owner", cascade = CascadeType.PERSIST)
-	private List<Car> cars;
+	private List<Book> books;
 	
 	private String pesel;
 	private String address;
@@ -64,7 +64,7 @@ public class Person {
 		context.raisenumberOfPeople();
 		this.pesel=pesel;
 		this.name=name;
-		this.cars=new ArrayList<Car>();
+		this.books=new ArrayList<Book>();
 	}
 	
 	public Person(String name) {
@@ -84,11 +84,11 @@ public class Person {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public List<Car> getCars() {
-		return cars;
+	public List<Book> getBook() {
+		return books;
 	}
-	public void setCars(List<Car> cars) {
-		this.cars = cars;
+	public void setCars(List<Book> books) {
+		this.books = books;
 	}
 
 	public String getPesel() {

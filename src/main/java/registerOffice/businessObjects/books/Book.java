@@ -1,4 +1,4 @@
-package registerOffice.businessObjects.cars;
+package registerOffice.businessObjects.books;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,36 +10,39 @@ import registerOffice.Context;
 import registerOffice.businessObjects.persons.Person;
 
 @Entity
-public abstract class Car implements CarInterface{
+public abstract class Book implements BookInterface{
 
 	@Id
 	@GeneratedValue
 	private int id;
 	
+	protected String title;
+	protected String isbn;
 	
 	@ManyToOne
-	protected Person owner;
+	protected Person author;
+	
 	
 	@Transient
 	Context context;
-	public Car(){
+	public Book(){
 		context =Context.getInstance();
-		context.raiseNumberOfCars();
+		context.raiseNumberOfBooks();
 	}
 	
 	public void printData()
 	{
-		System.out.println("Owner: "+owner.getName());
-		System.out.println(getCarDetails());
+		System.out.println("Author: "+author.getName());
+		System.out.println(getBookDetails());
 	}
 	
-	public abstract String getCarDetails();
+	public abstract String getBookDetails();
 	
-	public abstract Car Clone();
+	public abstract Book Clone();
 	
-	public void setOwner(Person owner)
+	public void setAuthor(Person author)
 	{
-		this.owner=owner;
+		this.author=author;
 	}
 	
 	public int getId() {
@@ -52,7 +55,7 @@ public abstract class Car implements CarInterface{
 
 	@Override
 	protected void finalize() throws Throwable {
-		context.reduceCars();
+		context.reduceBooks();
 		super.finalize();
 	}
 	
