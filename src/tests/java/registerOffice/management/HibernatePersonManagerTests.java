@@ -50,9 +50,9 @@ public class HibernatePersonManagerTests {
 		assertNotNull("brak wyników",result);
 		assertEquals("zle ustawienie Id",result.getId(),1);
 		
-		assertEquals("zle ustawienie adresu",result.getNationality(),"Bregi 55");
-		assertEquals("zle ustawienie imion",result.getName(), "Adam");
-		assertEquals("zle ustawienie peselu",result.getSurname(), "12324");
+		assertEquals("zle ustawienie narodowości",result.getNationality(),"Anglik");
+		assertEquals("zle ustawienie imion",result.getName(), "Aldonus");
+		assertEquals("zle ustawienie nazwiska",result.getSurname(), "Huxley");
 		assertNotSame("obiekty nie powinny wskazywac na to samo pole w pamieci",
 				result,result2);
 		assertNull("nie zwraca null gdy nie ma wyniku w bazie"
@@ -71,14 +71,13 @@ public class HibernatePersonManagerTests {
 
 	@Test
 	public void testSave() {
-		Person p = new Person("Tomasz","2314","Morska");
+		Person p = new Person("Henryk","Chmielnicki","Polak");
 		mgr.save(p);
 		Person result = mgr.get(7);
 		assertNotNull("nie zapisano do bazy",result);
-		assertEquals("zle ustawienie adresu",result.getNationality(),"Morska");
-		assertEquals("zle ustawienie imion",result.getName(), "Tomasz");
-		assertEquals("zle ustawienie peselu",result.getSurname(), "2314");
-		
+		assertEquals("zle ustawienie narodowości",result.getNationality(),"Polak");
+		assertEquals("zle ustawienie imion",result.getName(), "Henryk");
+		assertEquals("zle ustawienie nazwiska",result.getSurname(), "Chmielnicki");
 	}
 
 	@Test

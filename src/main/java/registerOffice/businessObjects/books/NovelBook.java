@@ -20,8 +20,8 @@ public class NovelBook extends Book{
 
 	@Override
 	public String getBookDetails() {
-		// TODO Auto-generated method stub
-		return title+" " + author +" "+isbn;
+		
+		return "\""+title+"\" " + author +" "+isbn;
 	}
 
 }

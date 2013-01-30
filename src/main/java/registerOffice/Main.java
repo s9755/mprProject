@@ -1,8 +1,6 @@
 package registerOffice;
 
-import java.sql.SQLPermission;
-import java.util.ArrayList;
-import java.util.LinkedList;
+
 import java.util.List;
 
 import org.hibernate.Session;
@@ -15,9 +13,6 @@ import registerOffice.businessObjects.books.ComicBook;
 import registerOffice.businessObjects.books.NovelBook;
 import registerOffice.businessObjects.persons.*;
 import registerOffice.management.*;
-import registerOffice.management.conditions.Condition;
-import registerOffice.management.conditions.GetByAddressCondition;
-import registerOffice.management.conditions.GetByNameCondition;
 
 public class Main {
 
@@ -80,10 +75,11 @@ public class Main {
 		Book tytRom = new ComicBook("Tytus, Romek i A'Tomek", 123123123, "Papcio Chmiel");
 		
 		Book spiMan = new ComicBook("Spider-Man", 999888111, "Stan Lee, Steve Ditko");
-		Book hulk   = new ComicBook("Increadible Hulk", 999888196, "Stan Lee, Jack Kirby");
+		Book incHul   = new ComicBook("Increadible Hulk", 999888196, "Stan Lee, Jack Kirby");
 		Book fanFou = new ComicBook("Fantastic Four", 999888145, "Stan Lee, Jack Kirby");
 		
-		// łączymy książki z autorami
+		// łączymy książki i autorów
+		//książki z autorami
 		nowWsp.setAuthor(aldHux);
 		wyspa.setAuthor(aldHux);
 		malDuc.setAuthor(aldHux);
@@ -104,6 +100,20 @@ public class Main {
 		jacwie.setAuthor(aleKam);
 		aKamNas.setAuthor(aleKam);
 		
+		walDea.setAuthor(robKir);
+		marZom.setAuthor(robKir);
+		invinc.setAuthor(robKir);
+		
+		kajKok.setAuthor(janChr);
+		kajtKo.setAuthor(janChr);
+		
+		tytRom.setAuthor(henChm);
+		
+		spiMan.setAuthor(staLee);
+		incHul.setAuthor(staLee);
+		fanFou.setAuthor(staLee);
+
+		//autorów z książkami
 		aldHux.getBook().add(nowWsp);
 		aldHux.getBook().add(wyspa);
 		aldHux.getBook().add(malDuc);
@@ -124,26 +134,36 @@ public class Main {
 		aleKam.getBook().add(jacwie);
 		aleKam.getBook().add(aKamNas);
 
+		robKir.getBook().add(walDea);
+		robKir.getBook().add(marZom);
+		robKir.getBook().add(invinc);
 		
+		janChr.getBook().add(kajKok);
+		janChr.getBook().add(kajtKo);
 		
-//		nowyWspanialySwiat.setAuthor(jurek);
-//		mamama.setAuthor(maciek);
-//		nowyWspanialySwiat.setAuthor(adam);
-//		adam.getBook().add(zly);
-//		jurek.getBook().add(nowyWspanialySwiat);
-//		maciek.getBook().add(mamama);
-//		
-//		
+		henChm.getBook().add(tytRom);
+		
+		staLee.getBook().add(spiMan);
+		staLee.getBook().add(incHul);
+		staLee.getBook().add(fanFou);
+
+		
+		// zapisanie w bazie
 		hib.save(aldHux);
 		hib.save(chaBuk);
 		hib.save(johWol);
 		hib.save(aleKam);
+		hib.save(robKir);
+		hib.save(janChr);
+		hib.save(henChm);
+		hib.save(staLee);
+
 		
 		List<Person>results = hib.getAll();
 		
 		for(Person p :results)
 		{
-			System.out.println(p.getName());
+			System.out.println(p.getName()+"\t"+p.getSurname());
 		}
 		
 	}
