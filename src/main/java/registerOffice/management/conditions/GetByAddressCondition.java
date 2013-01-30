@@ -13,7 +13,7 @@ public class GetByAddressCondition extends Condition<Person>{
 	@Override
 	protected boolean check(Person obj) {
 		// TODO Auto-generated method stub
-		return obj.getAddress().equalsIgnoreCase(address);
+		return obj.getNationality().equalsIgnoreCase(address);
 	}
 
 }

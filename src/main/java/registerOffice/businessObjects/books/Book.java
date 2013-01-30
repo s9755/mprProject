@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.Transient;
 
 import registerOffice.businessObjects.persons.Person;
 
@@ -20,18 +19,10 @@ public abstract class Book implements BookInterface{
 	protected String title;
 
 	@Column(name="Numer_ISBN")
-	protected String isbn;
+	protected long isbn;
 	
 	@ManyToOne
 	protected Person author;
-	
-	
-//	@Transient
-//	Context context;
-//	public Book(){
-//		context =Context.getInstance();
-//		context.raiseNumberOfBooks();
-//	}
 	
 	public void printData()
 	{
@@ -41,7 +32,6 @@ public abstract class Book implements BookInterface{
 	
 	public abstract String getBookDetails();
 	
-	public abstract Book Clone();
 	
 	public void setAuthor(Person author)
 	{
@@ -68,19 +58,12 @@ public abstract class Book implements BookInterface{
 		this.title = title;
 	}
 
-	public String getIsbn() {
+	public long getIsbn() {
 		return isbn;
 	}
 
-	public void setIsbn(String isbn) {
+	public void setIsbn(long isbn) {
 		this.isbn = isbn;
 	}
-	
 
-//	@Override
-//	protected void finalize() throws Throwable {
-//		context.reduceBooks();
-//		super.finalize();
-//	}
-	
 }

@@ -14,7 +14,7 @@ public class GetByPeselCondition extends Condition<Person>{
 	@Override
 	protected boolean check(Person obj) {
 		
-		return obj.getPesel().equalsIgnoreCase(pesel);
+		return obj.getSurname().equalsIgnoreCase(pesel);
 	}
 
 }

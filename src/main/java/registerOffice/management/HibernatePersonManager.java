@@ -27,8 +27,8 @@ public class HibernatePersonManager
 		
 		Person returnValue = new Person(
 				result.get(0).getName(), 
-				result.get(0).getPesel(),
-				result.get(0).getAddress());
+				result.get(0).getSurname(),
+				result.get(0).getNationality());
 		returnValue.setId(result.get(0).getId());
 		return returnValue;
 	}

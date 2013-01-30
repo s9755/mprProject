@@ -108,7 +108,7 @@ public class HsqlPersonManager
 					"INSERT INTO Persons(name,pesel)" +
 					"VALUES(?,?)");
 			savePerson.setString(1, obj.getName());
-			savePerson.setString(2, obj.getPesel());
+			savePerson.setString(2, obj.getSurname());
 			
 			return savePerson.execute();
 		} 

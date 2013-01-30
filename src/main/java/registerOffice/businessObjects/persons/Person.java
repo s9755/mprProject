@@ -10,7 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 import org.hibernate.annotations.NamedQueries;
 import org.hibernate.annotations.NamedQuery;
@@ -47,23 +46,20 @@ public class Person {
 	@OneToMany(mappedBy="author", cascade = CascadeType.PERSIST)
 	private List<Book> books;
 	
-	@Column(name="PESEL")
-	private String pesel;
+	@Column(name="Nazwisko")
+	private String surname;
 	
-	@Column(name="Adres")
-	private String address;
-	
-//	@Transient
-//	Context context;
-	
-	public Person(String name, String pesel, String address)
+	@Column(name="Narodowość")
+	private String nationality;
+
+	public Person(String name, String pesel, String nationality)
 	{
 		this(name,pesel);
-		this.address=address;
+		this.nationality=nationality;
 	}
-	public Person(String name, String pesel)
+	public Person(String name, String surname)
 	{
-		this.pesel=pesel;
+		this.surname=surname;
 		this.name=name;
 		this.books=new ArrayList<Book>();
 	}
@@ -92,12 +88,12 @@ public class Person {
 		this.books = books;
 	}
 
-	public String getPesel() {
-		return pesel;
+	public String getSurname() {
+		return surname;
 	}
 
-	public void setPesel(String pesel) {
-		this.pesel = pesel;
+	public void setSurname(String surname) {
+		this.surname = surname;
 	}
 	
 	public int getId() {
@@ -106,19 +102,13 @@ public class Person {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-/*	@Override
-	protected void finalize() throws Throwable {
-		context.reducePeople();
-		super.finalize();
-	}*/
 
-	public String getAddress() {
-		return address;
+	public String getNationality() {
+		return nationality;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setNationality(String nationality) {
+		this.nationality = nationality;
 	}
 
 	

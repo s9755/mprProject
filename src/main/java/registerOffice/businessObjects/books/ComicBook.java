@@ -3,25 +3,22 @@ package registerOffice.businessObjects.books;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
-import registerOffice.businessObjects.persons.Person;
-
 @Entity
 public class ComicBook extends Book{
 
 	@Column(name="Ilustracje")
 	private String drawings;
 	
-	public ComicBook(String title, /*Person author,*/ String isbn,  String drawings)
+	public ComicBook(String title, long isbn,  String drawings)
 	{
 		this.title=title;
-		/*this.author=author;*/
 		this.isbn=isbn;
 		this.drawings=drawings;
 	}
 	
-	public ComicBook()
+	public ComicBook(long isbn)
 	{
-		this("","","");
+		this("",isbn,"");
 	}
 	
 	public String getDrawings() {
@@ -34,14 +31,8 @@ public class ComicBook extends Book{
 
 	@Override
 	public String getBookDetails() {
-		// TODO Auto-generated method stub
-		return "This is a comicbook.";
+		return title +" "+ author + " " + isbn + " " + drawings;
 	}
 
-	@Override
-	public Book Clone() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }
 

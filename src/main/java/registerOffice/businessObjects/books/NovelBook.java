@@ -2,35 +2,21 @@ package registerOffice.businessObjects.books;
 
 import javax.persistence.Entity;
 
-import registerOffice.businessObjects.persons.Person;
-
-
 @Entity
 public class NovelBook extends Book{
 
-	//pole statyczne
-	
-	//pola prywatne
-	
-	//pola publiczne
-	
+
 	//konstruktory
-	public NovelBook(String title,/* Person author,*/ String isbn)
+	public NovelBook(String title, long isbn)
 	{
 		this.title=title;
-		/*this.author=author;*/
 		this.isbn=isbn;
 	}
 	
-//	public NovelBook()
-//	{
-//		this("","","");
-//	}
-	
-	//wlasciwosci
-
-	//metody
-	
+	public NovelBook(long isbn)
+	{
+		this("",isbn);
+	}
 
 	@Override
 	public String getBookDetails() {
@@ -38,13 +24,4 @@ public class NovelBook extends Book{
 		return title+" " + author +" "+isbn;
 	}
 
-	@Override
-	public Book Clone() {
-		
-//		NovelBook returnValue =new NovelBook();
-//		returnValue.setIsbn(this.isbn);
-		
-		//return returnValue;
-		return null;
-	}
 }
