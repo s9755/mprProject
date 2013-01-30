@@ -15,10 +15,10 @@ public class NovelBook extends Book{
 	//pola publiczne
 	
 	//konstruktory
-	public NovelBook(String title, Person author, String isbn)
+	public NovelBook(String title,/* Person author,*/ String isbn)
 	{
 		this.title=title;
-		this.author=author;
+		/*this.author=author;*/
 		this.isbn=isbn;
 	}
 	
@@ -28,31 +28,7 @@ public class NovelBook extends Book{
 //	}
 	
 	//wlasciwosci
-	public String getTitle() {
-		return title;
-	}
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public Person getAuthor() {
-		return author;
-	}
-
-	public void setAuthor(Person author) {
-		this.author = author;
-	}
-
-
-	public String getIsbn() {
-		return isbn;
-	}
-
-	public void setIsbn(String isbn) {
-		this.isbn = isbn;
-	}
-	
 	//metody
 	
 

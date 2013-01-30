@@ -15,7 +15,7 @@ import javax.persistence.Transient;
 import org.hibernate.annotations.NamedQueries;
 import org.hibernate.annotations.NamedQuery;
 
-import registerOffice.Context;
+
 import registerOffice.businessObjects.books.*;
 
 
@@ -44,14 +44,17 @@ public class Person {
 	@Column(name="Imie")
 	private String name;
 	
-	@OneToMany(mappedBy="owner", cascade = CascadeType.PERSIST)
+	@OneToMany(mappedBy="author", cascade = CascadeType.PERSIST)
 	private List<Book> books;
 	
+	@Column(name="PESEL")
 	private String pesel;
+	
+	@Column(name="Adres")
 	private String address;
 	
-	@Transient
-	Context context;
+//	@Transient
+//	Context context;
 	
 	public Person(String name, String pesel, String address)
 	{
@@ -60,8 +63,6 @@ public class Person {
 	}
 	public Person(String name, String pesel)
 	{
-		context= Context.getInstance();
-		context.raisenumberOfPeople();
 		this.pesel=pesel;
 		this.name=name;
 		this.books=new ArrayList<Book>();
@@ -106,11 +107,11 @@ public class Person {
 		this.id = id;
 	}
 	
-	@Override
+/*	@Override
 	protected void finalize() throws Throwable {
 		context.reducePeople();
 		super.finalize();
-	}
+	}*/
 
 	public String getAddress() {
 		return address;

@@ -9,6 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import registerOffice.businessObjects.books.AudioBook;
 import registerOffice.businessObjects.books.Book;
 import registerOffice.businessObjects.books.ComicBook;
 import registerOffice.businessObjects.books.NovelBook;
@@ -34,14 +35,23 @@ public class Main {
 				
 		
 		Person adam = new Person("Adam", "1234", "Brzegi 55");
-		Book zly = new NovelBook("Zły", adam,"123456789");
-		Book nowyWspanialySwiat = new NovelBook("Nowy Wspaniały Świat", adam,"443451189");
+		Person jurek = new Person("Jurek", "1234", "Brzegi 55");
+		Person maciek = new Person("Maciek", "1234", "Brzegi 55");
+		Book zly = new NovelBook("Zły", "123456789");
+		ComicBook nowyWspanialySwiat = new ComicBook("Nowy Wspaniały Świat", "443451189", "Matt Groening");
+		AudioBook mamama = new AudioBook("Nowy Wspaniały Świat","443451189", 4.22);
 		zly.setAuthor(adam);
+		nowyWspanialySwiat.setAuthor(jurek);
+		mamama.setAuthor(maciek);
 		nowyWspanialySwiat.setAuthor(adam);
 		adam.getBook().add(zly);
-		adam.getBook().add(nowyWspanialySwiat);
+		jurek.getBook().add(nowyWspanialySwiat);
+		maciek.getBook().add(mamama);
+		
 		
 		hib.save(adam);
+		hib.save(jurek);
+		hib.save(maciek);
 		
 		List<Person>results = hib.getAll();
 		
