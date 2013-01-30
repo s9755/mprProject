@@ -34,10 +34,17 @@ public class Main {
 				new HibernatePersonManager(session);
 				
 		// dodajemy autorów
+		// powieściopisarze
 		Person aldHux = new Person("Aldonus", "Huxley", "Anglik");
 		Person johWol = new Person("Johann Wolfgang", "Goethe", "Niemiec");
 		Person chaBuk = new Person("Charles", "Bukowski", "Amerykanin");
 		Person aleKam = new Person("Aleksander", "Kamiński", "Polak");
+		// autorzy komiksów
+		Person robKir = new Person("Robert", "Kirkman", "Amerykanin");
+		Person janChr = new Person("Janusz", "Christa", "Polak");
+		Person henChm = new Person("Henryk", "Chmielewski", "Polak");
+		Person staLee = new Person("Stan", "Lee", "Amerykanin");
+		
 		
 		// dodajemy powieści
 		Book nowWsp = new NovelBook("Nowy Wspaniały Świat", 978837758);
@@ -62,6 +69,20 @@ public class Main {
 		Book aKobiet = new AudioBook("Kobiety", 170244937, 189);
 		Book aKamNas = new AudioBook("Kamienie na szaniec", 543789122, 150.5);
 				
+		// dodajemy komiksy
+		Book walDea = new ComicBook("Walking Dead", 998119344, "Tony Moore, Charlie Adlard");
+		Book marZom = new ComicBook("Marvel Zombies", 998119567, "Sean Phillips");
+		Book invinc = new ComicBook("Invicible", 998119067, "Cory Walker");
+		
+		Book kajKok = new ComicBook("Kajko i Kokosz", 556601329, "Janusz Christa");
+		Book kajtKo = new ComicBook("Kajtek i Koko", 556601339, "Janusz Christa");
+		
+		Book tytRom = new ComicBook("Tytus, Romek i A'Tomek", 123123123, "Papcio Chmiel");
+		
+		Book spiMan = new ComicBook("Spider-Man", 999888111, "Stan Lee, Steve Ditko");
+		Book hulk   = new ComicBook("Increadible Hulk", 999888196, "Stan Lee, Jack Kirby");
+		Book fanFou = new ComicBook("Fantastic Four", 999888145, "Stan Lee, Jack Kirby");
+		
 		// łączymy książki z autorami
 		nowWsp.setAuthor(aldHux);
 		wyspa.setAuthor(aldHux);
@@ -87,6 +108,22 @@ public class Main {
 		aldHux.getBook().add(wyspa);
 		aldHux.getBook().add(malDuc);
 		aldHux.getBook().add(aNowWsp);
+		
+		johWol.getBook().add(cieMlo);
+		johWol.getBook().add(latNau);
+		johWol.getBook().add(powZwy);
+		johWol.getBook().add(aCieMlo);
+		
+		chaBuk.getBook().add(liston);
+		chaBuk.getBook().add(faktot);
+		chaBuk.getBook().add(kobiet);
+		chaBuk.getBook().add(aKobiet);
+		
+		aleKam.getBook().add(kamNas);
+		aleKam.getBook().add(zosPar);
+		aleKam.getBook().add(jacwie);
+		aleKam.getBook().add(aKamNas);
+
 		
 		
 //		nowyWspanialySwiat.setAuthor(jurek);
