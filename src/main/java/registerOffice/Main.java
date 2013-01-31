@@ -13,6 +13,7 @@ import registerOffice.businessObjects.books.ComicBook;
 import registerOffice.businessObjects.books.NovelBook;
 import registerOffice.businessObjects.persons.*;
 import registerOffice.management.*;
+import registerOffice.management.conditions.*;
 
 public class Main {
 
@@ -165,6 +166,11 @@ public class Main {
 		{
 			System.out.println(p.getName()+"\t"+p.getSurname());
 		}
+		
+		GetByNameCondition name;
+		GetByNationalityCondition nationality;
+		GetBySurnameCondition surname;
+		
 		
 	}
 
