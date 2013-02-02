@@ -2,5 +2,5 @@ Program oferuje bazę danych książek, komiksówi audiobooków oraz autorów ty
 Całość oparta jest o bazę danych połączoną przez Hibernate'a.
 
 Aplikacja pozwala na:
-- dodawanie, wyświetlanie, modyfikowanie danych, usuwanie autorów.
-- wyświetlanie, modyfikowanie danych książek, komiksów i audiobooków
+- dodawanie, wyświetlanie, usuwanie, modyfikowanie danych autorów.
+- dodawanie, wyświetlanie, usuwanie, modyfikowanie danych książek, komiksów i audiobooków
